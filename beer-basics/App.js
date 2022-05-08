@@ -7,7 +7,7 @@ export default function App() {
       <Text>Enter Text Below</Text>
       <StatusBar style="auto" />
       <TextInput 
-        placeholder='enter text here'
+        placeholder=''
         style={{height: 40}}
       />
     </View>
