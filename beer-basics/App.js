@@ -1,24 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
+import { ImageBackground, StyleSheet, Text, View, TextInput } from 'react-native';
 
-export default function App() {
-  return (
+const App = () => {
+  return(
     <View style={styles.container}>
-      <Text>Enter Text Below</Text>
-      <StatusBar style="auto" />
-      <TextInput 
-        placeholder=''
-        style={{height: 40}}
-      />
+      <ImageBackground
+        style={styles.image}
+        source={require('./assets/background1.jpeg')}
+        >
+        <Text>Beer Basics</Text>
+      </ImageBackground>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    flex: 1
   },
+  image: {
+    flex: 1,
+    resizeMode: 'contain'
+  }
 });
+
+export default App;
