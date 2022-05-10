@@ -5,16 +5,8 @@ import HomeScreen from './components/home.jsx';
 const App = () => {
   return(
     <View style={styles.container}>
-            <ImageBackground
-        style={styles.image}
-        source={require('./assets/background1.jpeg')}
-        >
-
-
-
-        <Text>Beer Basics</Text>
+      <HomeScreen style={styles.image}></HomeScreen>
       <StatusBar style="auto" />
-      </ImageBackground>
     </View>
   )
 }
