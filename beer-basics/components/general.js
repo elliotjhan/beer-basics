@@ -43,5 +43,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     fontFamily: "Cochin"
   }
-})
+});
+
 export default General;
