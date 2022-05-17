@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 let data = [
   {
@@ -25,6 +26,8 @@ const Item = ({ title, onPress }) => {
     </TouchableOpacity>
   )
 }
+
+const Tab = createBottomTabNavigator();
 
 const Menu = (props) => {
   const renderItem = ({item}) => {

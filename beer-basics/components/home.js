@@ -1,23 +1,31 @@
 import React from 'react';
-import { Text, Pressable, View, ImageBackground, StyleSheet } from 'react-native';
+import { Text, View, Image, StyleSheet } from 'react-native';
+import { useFonts } from 'expo-font';
+import AppLoading from 'expo-app-loading';
 
 const HomeScreen = (props) => {
+
+  setTimeout(() => {
+    props.navigation.navigate('Menu');
+  }, 1500);
+
+  let [fontsLoaded] = useFonts({
+    'Quicksand': require('./../assets/fonts/Quicksand-Regular.ttf'),
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
+
   return (
     <View style={styles.container}>
-      <ImageBackground
+      <Image
         style={styles.image}
-        source={require('./../assets/background1.jpeg')}
-      >
-        <Text style={styles.title}>Beer Basics</Text>
-        <Pressable 
-          onPress={() => {
-            props.navigation.navigate('Menu')
-          }}
-          style={styles.button}
-        >
-          <Text style={styles.text}>Start</Text>
-        </Pressable>
-      </ImageBackground>
+        source={require('./../assets/logo5.png')}
+      />
+      <Text style={styles.title}>
+        Brew 101
+      </Text>
     </View>
   )
 }
@@ -25,10 +33,14 @@ const HomeScreen = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center'
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#00a39b'
   }, 
   image: {
-    flex: 1
+    height: 150,
+    width: 150,
+    resizeMode: 'contain'
   },
   button: {
     alignItems: 'center',
@@ -37,21 +49,21 @@ const styles = StyleSheet.create({
     paddingHorizontal: 32,
     borderRadius: 4,
     elevation: 3,
-    backgroundColor: '#003e01',
+    backgroundColor: 'white',
     width: 100,
     marginTop: '60%',
     marginLeft: 'auto',
     marginRight: 'auto'
   },
-  text: {
-    color: 'white'
+  buttonText: {
+    color: 'black'
   },
   title: {
-    fontFamily: 'Optima, sans-serif',
-    fontSize: 60,
+    fontFamily: 'Quicksand',
+    fontSize: 65,
     color: 'white',
-    paddingTop: '20%',
-    textAlign: 'center'
+    textAlign: 'center',
+    paddingBottom: '40%'
   }
 });
 
