@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
 const General = () => {
   return (
@@ -8,5 +8,16 @@ const General = () => {
   </View>
   )
 }
+
+const styles = StyleSheet.create({
+  baseText: {
+    fontFamily: "Cochin"
+  },
+  titleText: {
+    fontSize: 20,
+    fontWeight: "bold",
+    fontFamily: "Cochin"
+  }
+});
 
 export default General;
