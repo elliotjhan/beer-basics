@@ -1,70 +1,34 @@
 import React from 'react';
-import { Text, View, Image, StyleSheet } from 'react-native';
-import { useFonts } from 'expo-font';
-import AppLoading from 'expo-app-loading';
+import {  } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import General from './general.js';
+import Brewing from './brewing.js';
+import History from './history.js';
+import MenuList from './menuList.js';
 
-const HomeScreen = (props) => {
+const Stack = createNativeStackNavigator();
 
-  setTimeout(() => {
-    props.navigation.navigate('Home');
-  }, 1500);
-
-  let [fontsLoaded] = useFonts({
-    'Quicksand': require('./../assets/fonts/Quicksand-Regular.ttf'),
-  });
-
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
-
-  return (
-    <View style={styles.container}>
-      <Image
-        style={styles.image}
-        source={require('./../assets/logo5.png')}
+const Home = () => {
+  return(
+    <Stack.Navigator initialRouteName='MenuList'>
+      <Stack.Screen 
+        name='Brew 101'
+        component={MenuList}
       />
-      <Text style={styles.title}>
-        Brew 101
-      </Text>
-    </View>
+      <Stack.Screen 
+        name='General'
+        component={General}
+      />
+      <Stack.Screen 
+        name='Brewing'
+        component={Brewing}
+      />
+      <Stack.Screen 
+        name='History'
+        component={History}
+      />
+    </Stack.Navigator>
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#00a39b'
-  }, 
-  image: {
-    height: 150,
-    width: 150,
-    resizeMode: 'contain'
-  },
-  button: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 12,
-    paddingHorizontal: 32,
-    borderRadius: 4,
-    elevation: 3,
-    backgroundColor: 'white',
-    width: 100,
-    marginTop: '60%',
-    marginLeft: 'auto',
-    marginRight: 'auto'
-  },
-  buttonText: {
-    color: 'black'
-  },
-  title: {
-    fontFamily: 'Quicksand',
-    fontSize: 65,
-    color: 'white',
-    textAlign: 'center',
-    paddingBottom: '40%'
-  }
-});
-
-export default HomeScreen;
+export default Home;

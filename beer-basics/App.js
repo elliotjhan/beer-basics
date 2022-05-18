@@ -1,14 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from './components/home.js';
-import Menu from './components/menu.js';
+import Loading from './components/loading.js';
+import Home from './components/home.js';
 import Game from './components/game.js';
 import Settings from './components/settings.js';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Tab = createBottomTabNavigator();
 
@@ -18,12 +16,12 @@ const App = () => {
       <Tab.Navigator 
         initialRouteName='Loading'
         screenOptions={{
-          activeTintColor: 'black'
+          tabBarInactiveTintColor: 'black'
         }}
       >
         <Tab.Screen 
           name='Loading' 
-          component={HomeScreen} 
+          component={Loading} 
           options={{
             headerShown: false,
             tabBarStyle: {
@@ -34,7 +32,7 @@ const App = () => {
         />
         <Tab.Screen 
           name='Home'
-          component={Menu}
+          component={Home}
           options={{
             headerShown: false,
             tabBarIcon: () => {
@@ -45,7 +43,6 @@ const App = () => {
                   color={'black'}
                 />
               )
-              // return <MaterialCommunityIcons name="home" color={'black'} size={25} />
             }
           }}
         />
