@@ -5,41 +5,81 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import HomeScreen from './components/home.js';
 import Menu from './components/menu.js';
-import General from './components/general.js';
-import Brewing from './components/brewing.js';
-import History from './components/history.js';
+import Game from './components/game.js';
+import Settings from './components/settings.js';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const App = () => {
   return(
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home'>
-        <Stack.Screen 
-          name='Home' 
+      <Tab.Navigator 
+        initialRouteName='Loading'
+        screenOptions={{
+          activeTintColor: 'black'
+        }}
+      >
+        <Tab.Screen 
+          name='Loading' 
           component={HomeScreen} 
           options={{
-            headerShown: false
+            headerShown: false,
+            tabBarStyle: {
+              display: 'none'
+            },
+            tabBarButton: props => null
           }}
         />
-        <Stack.Screen 
-          name='Menu'
+        <Tab.Screen 
+          name='Home'
           component={Menu}
+          options={{
+            headerShown: false,
+            tabBarIcon: () => {
+              return (
+                <Ionicons 
+                  name="home-outline"
+                  size={25}
+                  color={'black'}
+                />
+              )
+              // return <MaterialCommunityIcons name="home" color={'black'} size={25} />
+            }
+          }}
         />
-        <Stack.Screen 
-          name='General'
-          component={General}
+        <Tab.Screen 
+          name='Game'
+          component={Game}
+          options={{
+            tabBarIcon: () => {
+              return (
+                <Ionicons 
+                  name="game-controller-outline"
+                  size={25}
+                  color={'black'}
+                />
+              )
+            }
+          }}
         />
-        <Stack.Screen 
-          name='Brewing'
-          component={Brewing}
+        <Tab.Screen 
+          name='Settings'
+          component={Settings}
+          options={{
+            tabBarIcon: () => {
+              return (
+                <Ionicons 
+                  name="settings-outline"
+                  size={25}
+                  color={'black'}
+                />
+              )
+            }
+          }}
         />
-        <Stack.Screen 
-          name='History'
-          component={History}
-        />
-      </Stack.Navigator>
+      </Tab.Navigator>
     </NavigationContainer>
   )
 }

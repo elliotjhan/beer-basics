@@ -6,7 +6,7 @@ import AppLoading from 'expo-app-loading';
 const HomeScreen = (props) => {
 
   setTimeout(() => {
-    props.navigation.navigate('Menu');
+    props.navigation.navigate('Home');
   }, 1500);
 
   let [fontsLoaded] = useFonts({
