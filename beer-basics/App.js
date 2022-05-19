@@ -16,7 +16,8 @@ const App = () => {
       <Tab.Navigator 
         initialRouteName='Loading'
         screenOptions={{
-          tabBarInactiveTintColor: 'black'
+          tabBarInactiveTintColor: 'gray',
+          tabBarActiveTintColor: '#00a39b'
         }}
       >
         <Tab.Screen 
@@ -35,12 +36,13 @@ const App = () => {
           component={Home}
           options={{
             headerShown: false,
-            tabBarIcon: () => {
+            tabBarIcon: (tabInfo, color) => {
+              color=tabInfo.focused ? '#00a39b': 'gray';
               return (
                 <Ionicons 
                   name="home-outline"
                   size={25}
-                  color={'black'}
+                  color={color}
                 />
               )
             }
@@ -50,12 +52,13 @@ const App = () => {
           name='Game'
           component={Game}
           options={{
-            tabBarIcon: () => {
+            tabBarIcon: (tabInfo, color) => {
+              color=tabInfo.focused ? '#00a39b': 'gray';
               return (
                 <Ionicons 
                   name="game-controller-outline"
                   size={25}
-                  color={'black'}
+                  color={color}
                 />
               )
             }
@@ -65,12 +68,13 @@ const App = () => {
           name='Settings'
           component={Settings}
           options={{
-            tabBarIcon: () => {
+            tabBarIcon: (tabInfo, color) => {
+              color=tabInfo.focused ? '#00a39b': 'gray';
               return (
                 <Ionicons 
                   name="settings-outline"
                   size={25}
-                  color={'black'}
+                  color={color}
                 />
               )
             }
