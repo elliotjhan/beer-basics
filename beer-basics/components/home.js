@@ -10,7 +10,15 @@ const Stack = createNativeStackNavigator();
 
 const Home = () => {
   return(
-    <Stack.Navigator initialRouteName='MenuList'>
+    <Stack.Navigator 
+      initialRouteName='MenuList'
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: '#00a39b',
+        },
+        headerTintColor: 'white'
+      }}
+    >
       <Stack.Screen 
         name='Brew 101'
         component={MenuList}

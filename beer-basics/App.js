@@ -17,7 +17,11 @@ const App = () => {
         initialRouteName='Loading'
         screenOptions={{
           tabBarInactiveTintColor: 'gray',
-          tabBarActiveTintColor: '#00a39b'
+          tabBarActiveTintColor: '#00a39b',
+          headerStyle: {
+            backgroundColor: '#00a39b'
+          },
+          headerTintColor: 'white'
         }}
       >
         <Tab.Screen 
