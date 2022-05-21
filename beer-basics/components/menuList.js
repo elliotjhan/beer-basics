@@ -72,7 +72,8 @@ const MenuList = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    paddingTop: 10
   },
   itemContainer: {
     flexDirection: 'row',
@@ -82,6 +83,14 @@ const styles = StyleSheet.create({
     padding: 20,
     marginVertical: 8,
     marginHorizontal: 16,
+    shadowColor: 'black',
+    shadowOpacity: 0.3,
+    shadowRadius: 8,
+    // shadowOffset: {
+    //   width: 3,
+    //   height: 5,
+    // },
+
   },
   title: {
     fontSize: 25,
