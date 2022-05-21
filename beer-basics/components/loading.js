@@ -1,21 +1,14 @@
 import React from 'react';
 import { Text, View, Image, StyleSheet } from 'react-native';
 import { useFonts } from 'expo-font';
-import AppLoading from 'expo-app-loading';
 
 const Loading = (props) => {
-
   setTimeout(() => {
     props.navigation.navigate('Home');
   }, 1500);
-
   let [fontsLoaded] = useFonts({
     'Quicksand': require('./../assets/fonts/Quicksand-Regular.ttf'),
   });
-
-  if (!fontsLoaded) {
-    return <AppLoading />;
-  }
 
   return (
     <View style={styles.container}>

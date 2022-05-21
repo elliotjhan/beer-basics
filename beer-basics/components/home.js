@@ -1,20 +1,27 @@
 import React from 'react';
-import {  } from 'react-native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import General from './general.js';
 import Brewing from './brewing.js';
 import History from './history.js';
 import MenuList from './menuList.js';
+import { useFonts } from 'expo-font';
+
 
 const Stack = createNativeStackNavigator();
 
 const Home = () => {
+  let [fontsLoaded] = useFonts({
+    'Quicksand-Medium': require('./../assets/fonts/Quicksand-Medium.ttf'),
+  });
   return(
     <Stack.Navigator 
       initialRouteName='MenuList'
       screenOptions={{
         headerStyle: {
           backgroundColor: '#00a39b',
+        },
+        headerTitleStyle: {
+          fontFamily: 'Quicksand-Medium'
         },
         headerTintColor: 'white'
       }}

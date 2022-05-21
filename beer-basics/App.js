@@ -7,10 +7,14 @@ import Home from './components/home.js';
 import Game from './components/game.js';
 import Settings from './components/settings.js';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useFonts } from 'expo-font';
 
 const Tab = createBottomTabNavigator();
 
 const App = () => {
+  let [fontsLoaded] = useFonts({
+    'Quicksand-Medium': require('./assets/fonts/Quicksand-Medium.ttf'),
+  });
   return(
     <NavigationContainer>
       <Tab.Navigator 
@@ -20,6 +24,9 @@ const App = () => {
           tabBarActiveTintColor: '#00a39b',
           headerStyle: {
             backgroundColor: '#00a39b'
+          },
+          headerTitleStyle: {
+            fontFamily: 'Quicksand-Medium'
           },
           headerTintColor: 'white'
         }}
