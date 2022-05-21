@@ -1,58 +1,49 @@
 import React from 'react';
-import { Text, Pressable, View, ImageBackground, StyleSheet } from 'react-native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import General from './general.js';
+import Brewing from './brewing.js';
+import History from './history.js';
+import MenuList from './menuList.js';
+import { useFonts } from 'expo-font';
 
-const HomeScreen = (props) => {
-  return (
-    <View style={styles.container}>
-      <ImageBackground
-        style={styles.image}
-        source={require('./../assets/background1.jpeg')}
-      >
-        <Text style={styles.title}>Beer Basics</Text>
-        <Pressable 
-          onPress={() => {
-            props.navigation.navigate('Menu')
-          }}
-          style={styles.button}
-        >
-          <Text style={styles.text}>Start</Text>
-        </Pressable>
-      </ImageBackground>
-    </View>
+
+const Stack = createNativeStackNavigator();
+
+const Home = () => {
+  let [fontsLoaded] = useFonts({
+    'Quicksand-Medium': require('./../assets/fonts/Quicksand-Medium.ttf'),
+  });
+  return(
+    <Stack.Navigator 
+      initialRouteName='MenuList'
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: '#00a39b',
+        },
+        headerTitleStyle: {
+          fontFamily: 'Quicksand-Medium'
+        },
+        headerTintColor: 'white'
+      }}
+    >
+      <Stack.Screen 
+        name='Brew 101'
+        component={MenuList}
+      />
+      <Stack.Screen 
+        name='General'
+        component={General}
+      />
+      <Stack.Screen 
+        name='Brewing'
+        component={Brewing}
+      />
+      <Stack.Screen 
+        name='History'
+        component={History}
+      />
+    </Stack.Navigator>
   )
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center'
-  }, 
-  image: {
-    flex: 1
-  },
-  button: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 12,
-    paddingHorizontal: 32,
-    borderRadius: 4,
-    elevation: 3,
-    backgroundColor: '#003e01',
-    width: 100,
-    marginTop: '60%',
-    marginLeft: 'auto',
-    marginRight: 'auto'
-  },
-  text: {
-    color: 'white'
-  },
-  title: {
-    fontFamily: 'Optima, sans-serif',
-    fontSize: 60,
-    color: 'white',
-    paddingTop: '20%',
-    textAlign: 'center'
-  }
-});
-
-export default HomeScreen;
+export default Home;

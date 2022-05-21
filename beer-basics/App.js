@@ -1,43 +1,97 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View } from 'react-native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-import HomeScreen from './components/home.js';
-import Menu from './components/menu.js';
-import General from './components/general.js';
-import Brewing from './components/brewing.js';
-import History from './components/history.js';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Loading from './components/loading.js';
+import Home from './components/home.js';
+import Game from './components/game.js';
+import Settings from './components/settings.js';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import { useFonts } from 'expo-font';
 
-const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
 const App = () => {
+  let [fontsLoaded] = useFonts({
+    'Quicksand-Medium': require('./assets/fonts/Quicksand-Medium.ttf'),
+  });
   return(
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Menu'>
-        <Stack.Screen 
-          name='Home' 
-          component={HomeScreen} 
+      <Tab.Navigator 
+        initialRouteName='Loading'
+        screenOptions={{
+          tabBarInactiveTintColor: 'gray',
+          tabBarActiveTintColor: '#00a39b',
+          headerStyle: {
+            backgroundColor: '#00a39b'
+          },
+          headerTitleStyle: {
+            fontFamily: 'Quicksand-Medium'
+          },
+          headerTintColor: 'white'
+        }}
+      >
+        <Tab.Screen 
+          name='Loading' 
+          component={Loading} 
           options={{
-            headerShown: false
+            headerShown: false,
+            tabBarStyle: {
+              display: 'none'
+            },
+            tabBarButton: props => null
           }}
         />
-        <Stack.Screen 
-          name='Menu'
-          component={Menu}
+        <Tab.Screen 
+          name='Home'
+          component={Home}
+          options={{
+            headerShown: false,
+            tabBarIcon: (tabInfo, color) => {
+              color=tabInfo.focused ? '#00a39b': 'gray';
+              return (
+                <Ionicons 
+                  name="home-outline"
+                  size={25}
+                  color={color}
+                />
+              )
+            }
+          }}
         />
-        <Stack.Screen 
-          name='General'
-          component={General}
+        <Tab.Screen 
+          name='Game'
+          component={Game}
+          options={{
+            tabBarIcon: (tabInfo, color) => {
+              color=tabInfo.focused ? '#00a39b': 'gray';
+              return (
+                <Ionicons 
+                  name="game-controller-outline"
+                  size={25}
+                  color={color}
+                />
+              )
+            }
+          }}
         />
-        <Stack.Screen 
-          name='Brewing'
-          component={Brewing}
+        <Tab.Screen 
+          name='Settings'
+          component={Settings}
+          options={{
+            tabBarIcon: (tabInfo, color) => {
+              color=tabInfo.focused ? '#00a39b': 'gray';
+              return (
+                <Ionicons 
+                  name="settings-outline"
+                  size={25}
+                  color={color}
+                />
+              )
+            }
+          }}
         />
-        <Stack.Screen 
-          name='History'
-          component={History}
-        />
-      </Stack.Navigator>
+      </Tab.Navigator>
     </NavigationContainer>
   )
 }

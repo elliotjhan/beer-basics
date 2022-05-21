@@ -1,10 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const General = () => {
+const Game = () => {
   return (
   <View>
-      <Text>History Page</Text>
+      <Text style={styles.titleText}>Game Page</Text>
   </View>
   )
 }
@@ -20,4 +20,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default General;
+export default Game;
