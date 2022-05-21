@@ -1,10 +1,11 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
-const General = () => {
+const Settings = () => {
   return (
   <View>
-      <Text>History Page</Text>
+      <Text style={styles.titleText}>Settings</Text>
+
   </View>
   )
 }
@@ -20,4 +21,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default General;
+export default Settings;
