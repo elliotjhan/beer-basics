@@ -6,7 +6,7 @@ const Loading = (props) => {
   setTimeout(() => {
     props.navigation.navigate('Home');
   }, 1500);
-  let [fontsLoaded] = useFonts({
+  useFonts({
     'Quicksand': require('./../assets/fonts/Quicksand-Regular.ttf'),
   });
 

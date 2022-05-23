@@ -12,7 +12,7 @@ import { useFonts } from 'expo-font';
 const Tab = createBottomTabNavigator();
 
 const App = () => {
-  let [fontsLoaded] = useFonts({
+  useFonts({
     'Quicksand-Medium': require('./assets/fonts/Quicksand-Medium.ttf'),
   });
   return(

@@ -10,7 +10,7 @@ import { useFonts } from 'expo-font';
 const Stack = createNativeStackNavigator();
 
 const Home = () => {
-  let [fontsLoaded] = useFonts({
+  useFonts({
     'Quicksand-Medium': require('./../assets/fonts/Quicksand-Medium.ttf'),
   });
   return(
