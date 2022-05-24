@@ -21,14 +21,6 @@ const General = () => {
         flavor. But the basic backbone of your beer, from Coors to craft, remains 
         deliciously the same. And that’s because you don’t mess with the simplicity 
         of a good recipe. 
-        Looking a little more closely, we learn that beer, like leavened bread, 
-        is the product of starch-based yeast fermentation. Grains, most often super-starchy barley, are allowed to partially germinate and are then combined with water, creating a kind of cereal mash into which brewers unleash a small, single-celled army of Saccharomyces cerevisiae, or brewer’s yeast. Now, yeast love sugar just about as much as a kid in a candy store, except when yeast eat sugar, instead of having a tantrum and sticky fingers, they create magical byproducts: ethanol and CO2, which can show up in various levels in some of our favorite, and least favorite, beers. (Alcohol in a beer is often recorded on the label as “ABV,” alcohol by volume.) Hops, the cone-shaped flower of a tall climbing plant related to Cannabis, are added in the brewing process both as a means of clarification and stabilization, and to impart their signature flavors—which range from bitter and astringent to floral, fruity, and citrusy. And while beers can look anything from ultra-light golden to almost impenetrably rich brown, because the base of the beer is a grain mash, final colors usually tend to land somewhere in the brownish spectrum.
-        Again, variations abound, and just like wine, beer can sometimes assume 
-        some of the ambient terroir of its environment (indigenous yeast strains, 
-        water content, local fruit or hop flavors, etc.). But wherever water, malt, 
-        yeast, and hops come together in such a way that fermentation happens, 
-        the result—which you might enjoy out of a bottle or can or Solo cup, or 
-        maybe even an elegant Pilsner glass—is beer.
       </Text>
     </View>
   )
