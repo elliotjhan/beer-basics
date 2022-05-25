@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View, StyleSheet } from 'react-native';
+import { useFonts } from 'expo-font';
 
 const General = () => {
   return (
