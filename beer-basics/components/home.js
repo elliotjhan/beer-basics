@@ -15,10 +15,12 @@ const Home = () => {
   });
   return(
     <Stack.Navigator 
-      initialRouteName='MenuList'
+      initialRouteName='General'
       screenOptions={{
         headerStyle: {
           backgroundColor: '#00a39b',
+          borderBottomWidth: 0 
+          //remove white line between header and image
         },
         headerTitleStyle: {
           fontFamily: 'Quicksand-Medium'

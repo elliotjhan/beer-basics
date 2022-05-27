@@ -45,7 +45,7 @@ const Item = ({icon, description, title, onPress }) => {
 }
 
 const MenuList = (props) => {
-  let [fontsLoaded] = useFonts({
+  useFonts({
     'Quicksand': require('./../assets/fonts/Quicksand-Regular.ttf'),
   });
   const renderItem = ({item}) => {
