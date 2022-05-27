@@ -11,7 +11,7 @@ const General = () => {
     <ScrollView>
       <Image 
         style={styles.image}
-        source={require('./../assets/beer1.jpeg')}
+        source={require('./../assets/beer4.jpeg')}
       />
       <Text style={styles.titleText}>What Is Beer?</Text>
       <Text style={styles.baseText}>
