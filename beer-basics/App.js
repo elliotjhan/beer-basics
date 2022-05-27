@@ -12,13 +12,13 @@ import { useFonts } from 'expo-font';
 const Tab = createBottomTabNavigator();
 
 const App = () => {
-  let [fontsLoaded] = useFonts({
+  useFonts({
     'Quicksand-Medium': require('./assets/fonts/Quicksand-Medium.ttf'),
   });
   return(
     <NavigationContainer>
       <Tab.Navigator 
-        initialRouteName='Loading'
+        initialRouteName='Home'
         screenOptions={{
           tabBarInactiveTintColor: 'gray',
           tabBarActiveTintColor: '#00a39b',

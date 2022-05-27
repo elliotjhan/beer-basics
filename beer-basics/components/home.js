@@ -10,15 +10,17 @@ import { useFonts } from 'expo-font';
 const Stack = createNativeStackNavigator();
 
 const Home = () => {
-  let [fontsLoaded] = useFonts({
+  useFonts({
     'Quicksand-Medium': require('./../assets/fonts/Quicksand-Medium.ttf'),
   });
   return(
     <Stack.Navigator 
-      initialRouteName='MenuList'
+      initialRouteName='Brew 101'
       screenOptions={{
         headerStyle: {
           backgroundColor: '#00a39b',
+          borderBottomWidth: 0 
+          //remove white line between header and image
         },
         headerTitleStyle: {
           fontFamily: 'Quicksand-Medium'
