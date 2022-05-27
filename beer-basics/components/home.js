@@ -15,7 +15,7 @@ const Home = () => {
   });
   return(
     <Stack.Navigator 
-      initialRouteName='General'
+      initialRouteName='Brewing'
       screenOptions={{
         headerStyle: {
           backgroundColor: '#00a39b',

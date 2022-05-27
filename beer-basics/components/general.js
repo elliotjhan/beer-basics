@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, Text, View, StyleSheet, Image } from 'react-native';
+import { ScrollView, Text, StyleSheet, Image } from 'react-native';
 import { useFonts } from 'expo-font';
 
 const General = () => {
@@ -81,7 +81,7 @@ const styles = StyleSheet.create({
     fontSize: 18
   },
   titleText: {
-    fontSize: 30,
+    fontSize: 26,
     fontWeight: "bold",
     fontFamily: "Quicksand",
     paddingTop: 20,
