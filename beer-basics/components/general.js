@@ -12,7 +12,10 @@ const General = () => {
         Fortunately for beer lovers and beer newbies everywhere, the basic formula 
         for beer has remained the same for centuries: beer is the fermented, 
         alcoholic product of the careful combination of water, malt, hops, and 
-        yeast. That’s it. Okay, so hops weren’t always included in the mix, but 
+        yeast. 
+      </Text>
+      <Text style={styles.baseText}>
+        That’s it. Okay, so hops weren’t always included in the mix, but 
         we’ll get to that later. Where the modern beer industry is concerned, 
         whatever six pack you pick up from your local refrigerated case, the 
         malt-hops-yeast trifecta will be the secret of its glory. Of course, 
