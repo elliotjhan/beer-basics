@@ -5,7 +5,7 @@ import { useFonts } from 'expo-font';
 
 let data = [
   {
-    id: 'General',
+    id: 'What Is Beer?',
     title: 'What Is Beer',
     description: '\nLearn about the famous beverage',
     icon: 'beer-outline'

@@ -5,7 +5,7 @@ import { useFonts } from 'expo-font';
 const Loading = (props) => {
   setTimeout(() => {
     props.navigation.navigate('Home');
-  }, 1500);
+  }, 1700);
   useFonts({
     'Quicksand': require('./../assets/fonts/Quicksand-Regular.ttf'),
   });

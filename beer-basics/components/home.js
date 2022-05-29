@@ -33,7 +33,7 @@ const Home = () => {
         component={MenuList}
       />
       <Stack.Screen 
-        name='General'
+        name='What Is Beer?'
         component={General}
       />
       <Stack.Screen 
