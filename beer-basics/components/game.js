@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from 'react-native';
 const Game = () => {
   return (
   <View>
-      <Text style={styles.titleText}>Game Page</Text>
+      <Text style={styles.titleText}>Placeholder for multiple choice quiz game</Text>
   </View>
   )
 }
