@@ -1,7 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import { useFonts } from 'expo-font';
+
 
 const Game = () => {
+  useFonts({
+    'Quicksand': require('./../assets/fonts/Quicksand-Regular.ttf'),
+  });
   return (
   <View>
       <Text style={styles.titleText}>Placeholder for multiple choice quiz game</Text>
@@ -11,12 +16,11 @@ const Game = () => {
 
 const styles = StyleSheet.create({
   baseText: {
-    fontFamily: "Cochin"
+    fontFamily: "Quicksand"
   },
   titleText: {
     fontSize: 20,
-    fontWeight: "bold",
-    fontFamily: "Cochin"
+    fontFamily: "Quicksand"
   }
 });
 
