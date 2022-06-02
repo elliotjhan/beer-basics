@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, Text, View, Pressable } from "react-native";
+import { StyleSheet, Text, View, Pressable, Modal, Button } from "react-native";
 import { useFonts } from "expo-font";
 
 const Game = () => {
@@ -22,26 +22,29 @@ const Game = () => {
       answer: 1,
     },
   ];
-  const [questionCount, setQuestionCount] = useState(-1);
+  const [questionCount, setQuestionCount] = useState(0);
   const [gameStarted, setGameStarted] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+  const [answer, setAnswer] = useState(false);
   //useEffect(() => {});
 
   const generateStartPage = () => {
     return (
       <React.Fragment>
         <Text style={styles.titleText}>Test Your Knowledge!</Text>
-        <Pressable
-          style={styles.startButton}
-          onPress={() => incrementQuestionCount()}
-        >
+        <Pressable style={styles.startButton} onPress={() => turnGameOn()}>
           <Text style={styles.buttonText}>Start</Text>
         </Pressable>
       </React.Fragment>
     );
   };
 
-  const turnGameOnOff = () => {
-    setGameStarted(!gameStarted);
+  const turnGameOn = () => {
+    setGameStarted(true);
+  };
+
+  const turnGameOff = () => {
+    setGameStarted(false);
   };
 
   const generateQuestion = () => {
@@ -79,22 +82,68 @@ const Game = () => {
     let currentQuestion = questionList[questionCount];
     let correctAnswer = currentQuestion.choices[currentQuestion.answer];
     if (choice === correctAnswer) {
-      alert("Correct!");
+      setAnswer(true);
     } else {
-      alert("Incorrect!");
+      setAnswer(false);
     }
+    setModalVisible(!modalVisible);
   };
 
   const incrementQuestionCount = () => {
-    turnGameOnOff();
     if (questionCount === questionList.length - 1) {
       setQuestionCount(0); //when hitting the end, reset to 0
+      turnGameOff();
     } else {
       setQuestionCount(questionCount + 1);
     }
   };
 
-  return <View style={styles.container}>{generateQuestion()}</View>;
+  const generateModalContent = () => {
+    let buttonText = "Next Question";
+    if (questionCount === questionList.length - 1) buttonText = "Reset";
+    if (answer === true) {
+      return (
+        <React.Fragment>
+          <Text>Correct!</Text>
+          <Button
+            onPress={() => {
+              setModalVisible(!modalVisible);
+              incrementQuestionCount();
+            }}
+            title={buttonText}
+          />
+        </React.Fragment>
+      );
+    } else {
+      return (
+        <React.Fragment>
+          <Text>Incorrect!</Text>
+          <Button
+            onPress={() => {
+              setModalVisible(!modalVisible);
+            }}
+            title="Try Again"
+          />
+        </React.Fragment>
+      );
+    }
+  };
+
+  return (
+    <View style={styles.container}>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalVisible}
+        onRequestClose={() => {
+          setModalVisible(!modalVisible);
+        }}
+      >
+        <View style={styles.modalView}>{generateModalContent()}</View>
+      </Modal>
+      {generateQuestion()}
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -137,6 +186,21 @@ const styles = StyleSheet.create({
     backgroundColor: "gray",
     fontFamily: "Quicksand",
     marginBottom: 10,
+  },
+  modalView: {
+    margin: 20,
+    backgroundColor: "white",
+    borderRadius: 20,
+    padding: 35,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 4,
+    elevation: 5,
   },
 });
 
