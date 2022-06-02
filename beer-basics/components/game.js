@@ -30,12 +30,12 @@ const Game = () => {
 
   const generateStartPage = () => {
     return (
-      <React.Fragment>
+      <View style={styles.container}>
         <Text style={styles.titleText}>Test Your Knowledge!</Text>
         <Pressable style={styles.startButton} onPress={() => turnGameOn()}>
           <Text style={styles.buttonText}>Start</Text>
         </Pressable>
-      </React.Fragment>
+      </View>
     );
   };
 
@@ -53,10 +53,10 @@ const Game = () => {
     } else {
       let currentQuestion = questionList[questionCount];
       return (
-        <React.Fragment>
+        <View style={styles.modalContainer}>
           <Text style={styles.prompt}>{currentQuestion.prompt}</Text>
           <Text>{generateChoices(currentQuestion.choices)}</Text>
-        </React.Fragment>
+        </View>
       );
     }
   };
@@ -100,29 +100,31 @@ const Game = () => {
 
   const generateModalContent = () => {
     let buttonText = "Next Question";
-    if (questionCount === questionList.length - 1) buttonText = "Reset";
+    if (questionCount === questionList.length - 1) buttonText = "Reset Game";
     if (answer === true) {
       return (
         <React.Fragment>
-          <Text>Correct!</Text>
+          <Text style={styles.modalText}>Correct!</Text>
           <Button
             onPress={() => {
               setModalVisible(!modalVisible);
               incrementQuestionCount();
             }}
             title={buttonText}
+            color="#1393AD"
           />
         </React.Fragment>
       );
     } else {
       return (
         <React.Fragment>
-          <Text>Incorrect!</Text>
+          <Text style={styles.modalText}>Incorrect!</Text>
           <Button
             onPress={() => {
               setModalVisible(!modalVisible);
             }}
             title="Try Again"
+            color="#1393AD"
           />
         </React.Fragment>
       );
@@ -130,9 +132,9 @@ const Game = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View>
       <Modal
-        animationType="slide"
+        animationType="fade"
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
@@ -149,7 +151,12 @@ const Game = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    marginTop: "10%",
+  },
+  modalContainer: {
+    justifyContent: "flex-start",
     alignItems: "center",
   },
   baseText: {
@@ -159,21 +166,23 @@ const styles = StyleSheet.create({
     fontSize: 40,
     fontFamily: "Quicksand",
     textAlign: "center",
+    marginBottom: 15,
   },
   startButton: {
-    backgroundColor: "#00a39b",
-    padding: 15,
+    backgroundColor: "#1393AD",
+    padding: 10,
     borderRadius: 7,
   },
   buttonText: {
-    fontSize: 30,
+    fontSize: 20,
     color: "white",
     textAlign: "center",
     fontFamily: "Quicksand",
   },
   prompt: {
-    fontSize: 30,
+    fontSize: 25,
     fontFamily: "Quicksand",
+    padding: 20,
   },
   choice: {
     fontSize: 20,
@@ -183,12 +192,14 @@ const styles = StyleSheet.create({
     width: "100%",
     borderRadius: 8,
     height: 50,
-    backgroundColor: "gray",
+    backgroundColor: "#094E96",
+    color: "white",
     fontFamily: "Quicksand",
     marginBottom: 10,
   },
   modalView: {
-    margin: 20,
+    marginHorizontal: 50,
+    marginTop: "25vh",
     backgroundColor: "white",
     borderRadius: 20,
     padding: 35,
@@ -201,6 +212,11 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.25,
     shadowRadius: 4,
     elevation: 5,
+  },
+  modalText: {
+    fontSize: 18,
+    marginBottom: 8,
+    fontFamily: "Quicksand",
   },
 });
 
