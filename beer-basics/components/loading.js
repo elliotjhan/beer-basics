@@ -1,63 +1,58 @@
-import React from 'react';
-import { Text, View, Image, StyleSheet } from 'react-native';
-import { useFonts } from 'expo-font';
+import React from "react";
+import { Text, View, Image, StyleSheet } from "react-native";
+import { useFonts } from "expo-font";
 
 const Loading = (props) => {
   setTimeout(() => {
-    props.navigation.navigate('Home');
-  }, 1700);
+    props.navigation.navigate("Home");
+  }, 1600);
   useFonts({
-    'Quicksand': require('./../assets/fonts/Quicksand-Regular.ttf'),
+    Quicksand: require("./../assets/fonts/Quicksand-Regular.ttf"),
   });
 
   return (
     <View style={styles.container}>
-      <Image
-        style={styles.image}
-        source={require('./../assets/logo5.png')}
-      />
-      <Text style={styles.title}>
-        Brew 101
-      </Text>
+      <Image style={styles.image} source={require("./../assets/logo5.png")} />
+      <Text style={styles.title}>Brew 101</Text>
     </View>
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#00a39b'
-  }, 
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#00a39b",
+  },
   image: {
     height: 150,
     width: 150,
-    resizeMode: 'contain'
+    resizeMode: "contain",
   },
   button: {
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     paddingVertical: 12,
     paddingHorizontal: 32,
     borderRadius: 4,
     elevation: 3,
-    backgroundColor: 'white',
+    backgroundColor: "white",
     width: 100,
-    marginTop: '60%',
-    marginLeft: 'auto',
-    marginRight: 'auto'
+    marginTop: "60%",
+    marginLeft: "auto",
+    marginRight: "auto",
   },
   buttonText: {
-    color: 'black'
+    color: "black",
   },
   title: {
-    fontFamily: 'Quicksand',
+    fontFamily: "Quicksand",
     fontSize: 65,
-    color: 'white',
-    textAlign: 'center',
-    paddingBottom: '40%'
-  }
+    color: "white",
+    textAlign: "center",
+    paddingBottom: "40%",
+  },
 });
 
 export default Loading;
