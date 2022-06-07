@@ -1,6 +1,6 @@
 # Beer 101 - Education and Quiz App
 
-![Image]()
+![Image](Brew101.gif)
 
 Here you will see an mvp for an education and quiz application about beer. It is a work in progress and was built in React Native. Live demo coming soon.
 
