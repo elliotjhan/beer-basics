@@ -29,7 +29,7 @@ Here you will see an mvp for an education and quiz application about beer. It is
 3. CSS3
 4. Node
 5. JavaScript
-6. MySQL 
+6. PostgreSQL 
 
 # Contributing
 
